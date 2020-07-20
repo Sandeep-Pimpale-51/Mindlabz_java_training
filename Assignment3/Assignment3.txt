@@ -1,0 +1,40 @@
+1) How to Print duplicate characters from String?
+For example, if String is "Java" then the program should print "a". 
+
+2) How to check if two Strings are anagrams of each other?
+A simple coding problem based upon String, but could also be asked with numbers. You need to write a Java program to check if two given strings are anagrams of Each other. Two strings are anagrams if they are written using the same exact letters, ignoring space, punctuation, and capitalization. Each letter should have the same count in both strings. For example, the Army and Mary are an anagram of each other.
+
+3) How to program to print first non repeated character from String?
+One of the most common string interview questions: Find the first non-repeated (unique) character in a given string. for example, if given String is "Morning" then it should print "M". This question demonstrates the efficient use of the hash table data structure.
+
+
+4) How to reverse String in Java using Iteration and Recursion?
+Your task is to write a program to reverse String in Java without using the StringBuffer class. You also need to provide both iterative and recursive algorithms for String reversal. You can use other String utility methods e.g. charAt(), toCharArray() or substring() from java.lang.String class.
+
+5) How to find duplicate characters in a String?
+You need to write a program to print all duplicate character and their count in Java. For example, if given String is "Programming" then your program should print
+g : 2
+r : 2
+m : 2
+
+6) How to count a number of vowels and consonants in a String?
+One of the easiest String questions you will ever see. You have to write a Java program that will take a String input and print out a number of vowels and consonants on that String. For example, if the input is "Java" then your program should print "2 vowels and 2 consonants".
+
+7) How to count the occurrence of a given character in String?
+Your method must return a count of a given character, for example, if input String is "Java" and given character is 'a' then it should return 2.
+
+8) How to convert numeric String to an int?
+For example, if you pass "67263" to the program then it should return 67263.
+
+9) How to find all permutations of String?
+Write a program to print all permutations of a String in Java, for example, if the input is "xyz" then it should print "xyz", "yzx", "zxy", "xzy", "yxz", "zyx".
+
+10) How to check if String is Palindrome?
+For example, if the input is "radar", the output should be true, if the input is "madam" output will be true, and if the input is "Java" output should be false.
+
+11) How to remove duplicate characters from String?
+For example, if the input is ‘bananas’ the output will be ‘bans’.
+
+
+12) How to return the highest occurred character in a String?
+You need to write a function to implement an algorithm that will accept a string of characters and should find the highest occurrence of the character and display it. For example if input is "aaaaaaaaaaaaaaaaabbbbcddddeeeeee" it should return "a".
