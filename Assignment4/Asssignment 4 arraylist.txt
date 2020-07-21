@@ -1,0 +1,108 @@
+1) Explain the different ways of constructing an ArrayList?
+
+
+---------------------------------------
+2) How do you increase the current capacity of an ArrayList?
+
+ensureCapacity() method is used to increase the current capacity of an ArrayList. However, capacity of an ArrayList is automatically increased when we try to add more elements than the current capacity. To manually increase the current capacity, ensureCapacity() method is used.
+
+
+-----------------------------------------------------------
+3) How do you decrease the current capacity of an ArrayList to the current size?
+
+trimToSize() method is used to trim the capacity of arrayList to the current size of ArrayList. Developers use this method to minimize the storage area of an ArrayList.
+
+
+
+--------------------------------------------------------------------------------
+4) How do you find the number of elements present in an ArrayList?
+
+Using size() method. size() method returns number of elements present in an ArrayList.
+
+
+
+----------------------------------------------------------------------------------------
+5) How do you find out whether the given ArrayList is empty or not?
+
+isEmpty() method of ArrayList is used to check whether the given ArrayList is empty or not. This method returns true if an ArrayList contains no elements otherwise returns false.
+
+Note : You can also use size() method to check whether the given ArrayList is empty or not. size() method returns ‘0’ if an ArrayList is empty.
+-----------------------------------------------------------
+6) How do you check whether the given element is present in an ArrayList or not?
+
+Using contains() method of ArrayList, we can examine whether the ArrayList contains the given element or not. This method returns true if ArrayList has that element otherwise returns false.
+
+------------------------------------------------
+7) How do you get the position of a particular element in an ArrayList?
+
+We can use indexOf() and lastIndexOf() methods to find out the position of a given element in an ArrayList. indexOf() method returns index of first occurrence of a specified element where as lastIndexOf() method returns index of last occurrence of a specified element in an ArrayList. If element is not found, they will return -1.
+
+
+------------------------------------------------------
+8) How do you convert an ArrayList to Array?
+
+Using toArray() method of ArrayList class. toArray() method returns an array containing all elements of the ArrayList. This method acts as a bridge between normal arrays and collection framework in java.
+
+---------------------------------------------
+9) How do you retrieve an element from a particular position of an ArrayList?
+
+get() method returns an element from a specified position of an ArrayList. This method takes index of the element as an argument.
+
+
+
+----------------------------------------------
+10) How do you replace a particular element in an ArrayList with the given element?
+
+set() method replaces a particular element in an Arraylist with the given element. This method takes two arguments. One is the index of the element to be replaced and another one is the element to be placed at that position.
+
+--------------------------------------------
+11) How do you append an element at the end of an ArrayList?
+
+add() method appends an element at the end of an ArrayList.
+
+
+
+-------------------------------------------------
+12) How do you insert an element at a particular position of an ArrayList?
+
+add() method which takes index and an element as arguments can be used to insert an element at a particular position of an ArrayList. The elements at the right side of that position are shifted one position right i.e indices of right side elements of that position are increased by 1.
+
+
+
+--------------------------------------
+13) How do you remove an element from a particular position of an ArrayList?
+
+remove() method which takes int type as an argument is used to remove an element from a particular position of an ArrayList.
+
+
+ 
+-----------------------------------------
+14) How do you remove the given element from an ArrayList?
+
+remove(Object obj) method removes the first occurrence of the specified element ‘obj‘. If that element doesn’t exist, ArrayList will be unchanged.
+
+
+----------------------------------------------
+15) How do you remove all elements of an ArrayList at a time?
+
+clear() method removes all elements of an ArrayList. ArrayList will be empty after this method is executed.
+
+
+
+------------------------------------
+16) How do you retrieve a portion of an ArrayList?
+
+Using subList() method of ArrayList, we can retrieve a portion of an ArrayList. subList() method returns a view of a portion of an ArrayList in the given range. The returned subList is backed by original ArrayList. That means any changes made to subList will be reflected in original ArrayList or Vice-Versa.
+
+
+---------------------------------------------
+17) How do you join two ArrayLists?
+
+We can use addAll() method which takes Collection type as an argument to join two ArrayLists. This method appends all elements of the passed collection to the end of the invoking collection.
+
+-------------------------------------------------------------
+18) How do you insert more than one element at a particular position of an ArrayList?
+
+Another version of addAll() method which takes two arguments, one is index and another one is Collection type, can be used for this requirement. This method inserts all of the elements of passed collection at a specified position of an ArrayList.
+
+
