@@ -1,0 +1,29 @@
+Assignmnet 5 :
+Do all same all program for linkedlist , hashset, and for hashmap which you did in arraylist.
+You have to make a 3 class file to execute all the method with respective   linkedlist , hashset, and hashmap.
+Problm statement will be same but method will be used as per the linkedlist , hashset, and  hashmap.
+
+Assignment 6 : 
+File IO problem
+Create new file 'test.txt'.
+Write a data in it of about 300 words.
+read a file 'test.txt'.
+calculate the letter in it.(a,b,c,d....)
+constant in that file (b,c,d,f....)
+vowel in that file (a, e, i ,o ,u)
+words in a complete file.("JAVA")
+calcualte  how many time one charater is repeated.(a=10,b=50,z=34....)
+save that file with other name 'test_copy.txt'.
+
+Assignment 7: 
+Generic
+1.Write a generic method to find the maximal element in the range [begin, end] of a list.
+i/p :  {2,62, 4,78, 6, 10,49,20,59,43,29,30,56,89,}  
+out: 89.
+
+2.Write a generic method to count the number of elements in a collection that have a specific property (for example, odd integers, even number)
+i/p :{2 ,4 ,6 ,7, 8,9,90,78,41,56,79,45,65,85}
+ out put :
+ even :  7
+ odd :  7
+
