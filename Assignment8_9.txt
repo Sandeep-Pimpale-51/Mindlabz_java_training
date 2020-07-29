@@ -1,0 +1,49 @@
+Assignment  8 Thread and Multi thread
+
+Q1. In this challenge, simulate a banking system. Create the Account and Transaction classes.
+
+1. The Account class has a data member int balance, initially assigned to zero. The class should implement the following three methods:
+
+String deposit(int money) to add money to the balance. This method should return a string that describes the deposit transaction, i.e., "Depositing $money".
+String withdraw(int money) to subtract money from the balance. This method should return a string that describes the withdraw transaction, i.e., "Withdrawing $money". Note that, if there is insufficient balance to successfully withdraw the desired amount, then the balance should not be adjusted, and the returned string should be "Withdrawing $money (Insufficient Balance)".
+int getBalance() to return the account balance.
+2. The Transaction class has two data members Account account and List transactions. The class should implement the following three methods:
+
+void deposit(int money) to invoke the deposit method in the Account class. This should add the transaction message to the transactions list.
+void withdraw(int money) to invoke the withdraw method in the Account class. This should add the transaction message to the transactions list.
+List getTransaction() to return the transactions.
+
+Q2. Write a program of producer and consumer
+
+Q3. Write a program of thread to used all the method of thread like (wait, sleep, notify, notifyall,join,getname, currentthreade islive?, priority ).
+you have to write on sigle program to used this all.
+
+Q4. You are required to compute the power of a number by implementing a calculator. Create a class MyCalculator which consists of a single method long power(int, int). This method takes two integers, n and p, as parameters and finds . If either p  or n is negative, then the method must throw an exception which says "n and p should not be negative". Also, if both  and  are zero, then the method must throw an exception which says "n and p should not be zero"
+For example, -4 and -5 would result in java.lang.Exception: n or p should not be negative.
+Complete the function power in class MyCalculator and return the appropriate result after the power operation or an appropriate exception as detailed above.
+
+Q5.Java Program Showing Execution of Multiple Tasks with a Single Thread
+Q6.Java Program Showing Two Threads Working Simultaneously Upon Two Objects
+Q7.Java Program Showing Two Threads Acting Upon a Single Object
+Q8.Java Program with 2 Threads Which Prints Alternatively
+Q9.Java Program to Start One Thread More than Once
+Q10.Java Program to Check CurrentThread in Multi Threading Concept
+Q11.Java Program to Create a Server with 2 Threads to Communicate with Serveral Clients
+Q12.Java Program to Create a Client That Receive Message From the Server
+Q13.Java Program of a Multithreaded Implementation of Any Parallelized Divide-Conquer Algorithm
+
+
+Assignment 9: JBCD
+Make a new file read.txt
+add a data of student assigned as
+name,rollnuber,marks,percentage.
+tom,101,500,95%
+
+of 10 student.
+Read a txt file.
+Make a database connection and store the data in student table with attribute
+name varchar(30),rollnumber int(10),marks int (10),percentage int(10)
+
+
+
+
