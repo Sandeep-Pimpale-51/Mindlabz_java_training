@@ -1,0 +1,31 @@
+Assignment 10: JBCD_exception handling _ string_array_collection, static method, oops concept.
+1. make a database  'db_bank'
+2. Make a table in it 'tbl_account'
+3. Make a table in it 'tbl_transaction' (accountnumber, transaction date, amount, transaction type, balance)
+3. Java program to add a deatils of the account holder
+method saveDetails(account number,name, age, address, opening balance ammount)
+
+4. Transaction of bank account.
+Method transaction(accountnumber , date, transaction type ,amount)
+is deposit then add the amount and withdrawal will -minus the amount from the balance.
+if balnce is less than withdrawal then send exception 'Please check the amount ! Low balance'
+
+5. Printing the passbook
+Method printData(account details and then transaction details);
+print this data in one text file with account holder name ex: tom.txt
+make a join query for this.
+
+6. flush the account
+method deleteAccount()
+This will detele all your account details and transaction from the table 
+and delete the file from your folder also where it is save.
+
+Used switch case and program will run till user press or type 'exit' command.
+Do simple code dont make a code confusion.
+Mark will be given on cleand and understanding code. 
+use comment on every line of code.
+make code dependent so we can used it in any other project also.
+
+Once completed commit in github.
+
+
