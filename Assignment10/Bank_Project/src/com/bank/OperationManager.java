@@ -256,7 +256,13 @@ public class OperationManager {
 			// load and establish conncetion to JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");  
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3307/db_bank","root","root");  
-			
+			String sqlacc = "SELECT name FROM `tbl_account` WHERE accno ='" + no + "'";
+         		   ResultSet rs = connection.createStatement().executeQuery(sqlacc);
+       			     String name = null;
+     		       while (rs.next()) {
+       			         name = rs.getString("name");
+        		    }			
+
 			//delete record in  tbl_transaction of given account number
 			Statement stmt=con.createStatement();
 			String deleteTrans = " DELETE FROM db_bank.tbl_transaction where account_number="+acctNo;
@@ -268,9 +274,17 @@ public class OperationManager {
 			PreparedStatement preparedStmt = con.prepareStatement(deleteAcct);
 			System.out.println("Account deleted");
 			preparedStmt.execute();
-			
+			 String filename = name + ".txt";
+           		 System.out.println("filename " + filename);
+            			File f = new File(filename);           //file to be delete  
+            		if (f.delete()) //returns Boolean value  
+   		         {
+              		  System.out.println(f.getName() + " deleted");   //getting and printing the file name  
+           		 } else {
+            			    System.out.println("failed");
+        		    }
 		      
-		}catch(Exception e) {
+			}catch(Exception e) {
 			System.out.println(e);
 		}
 	}
