@@ -5,10 +5,18 @@
  */
 package com.student.view;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +30,11 @@ public class FeesFrame extends javax.swing.JFrame {
     public FeesFrame() {
         initComponents();
     }
-
+    static java.sql.Date getCurrentDate() {
+		//to load currunt time in date 
+	    java.util.Date today = new java.util.Date();
+	    return new java.sql.Date(today.getTime());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,12 +45,12 @@ public class FeesFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblBanner = new javax.swing.JLabel();
+        lblSID = new javax.swing.JLabel();
         txtSID = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lblFeesType = new javax.swing.JLabel();
         txtFT = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lblAmmount = new javax.swing.JLabel();
         txtAmmount = new javax.swing.JTextField();
         txtSubmit = new javax.swing.JButton();
         lblout = new javax.swing.JLabel();
@@ -49,14 +61,20 @@ public class FeesFrame extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("SchoolManagementSystem"));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel1.setText("School Management System");
+        lblBanner.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        lblBanner.setText("School Management System");
 
-        jLabel2.setText("StudentID");
+        lblSID.setText("StudentID");
 
-        jLabel3.setText("Fees Type");
+        txtSID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSIDKeyPressed(evt);
+            }
+        });
 
-        jLabel4.setText("Ammount ");
+        lblFeesType.setText("Fees Type");
+
+        lblAmmount.setText("Ammount ");
 
         txtSubmit.setText("Submit");
         txtSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -91,9 +109,9 @@ public class FeesFrame extends javax.swing.JFrame {
                         .addComponent(btnBack))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))
+                            .addComponent(lblFeesType)
+                            .addComponent(lblSID)
+                            .addComponent(lblAmmount))
                         .addGap(67, 67, 67)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAmmount, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -102,26 +120,26 @@ public class FeesFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(155, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblBanner, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(152, 152, 152))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblBanner, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblSID)
                     .addComponent(txtSID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
+                    .addComponent(lblFeesType)
                     .addComponent(txtFT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAmmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(lblAmmount))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSubmit)
@@ -176,10 +194,40 @@ public class FeesFrame extends javax.swing.JFrame {
                                 
                                  lblout.setText(" "+FeeType+" Fees of "+StudID+" has been Submited.");
                                 System.out.println("Done");
-                      con.close();
+                                
+                                  Statement stmt=con.createStatement();
+		      String getFees="SELECT * FROM db_school.fees where StudID="+StudID;
+                     
+                      ResultSet rs = stmt.executeQuery(getFees);
+			int SID=0,TID=0;
+			String Ftype="";
+                        float Fees=0;
+                       
+                           String tdate=getCurrentDate().toString();  
+                        while(rs.next()) {
+				
+				//load table data into variables
+				TID= rs.getInt(1);
+				SID=rs.getInt(2);
+                                Ftype= rs.getString(3);
+                                Fees=rs.getFloat(4);
+                                 tdate=rs.getDate(5).toString();
+			}
+                       
+                       String fileName = SID+"-"+FeeType+".txt";
+                         PrintWriter outputfile= new PrintWriter(fileName);
+		      //String Buffer to load info to file
+		      StringBuilder str = new StringBuilder();
                       
-                } catch (ClassNotFoundException | SQLException e) {
+                        str.append("\n Z. P. School,Latur").append("\n \n \tSR. NO. = ").append(TID).append("\n \tDate :").append(tdate).append("\n \tStudent ID = ").append(SID).append("\n \tFEE TYPE = ").append(Ftype).append("\n \tFEE in Rs. = ").append(Fees);
+                        outputfile.append(str.toString());
+                    System.out.println("Fees Receipt is Genrated");
+                       
+                      con.close();
+                      outputfile.close();
+                } catch (FileNotFoundException|ClassNotFoundException | SQLException e) {
             
+                     JOptionPane.showMessageDialog(null,"Enter Valid details");
         } 
     }//GEN-LAST:event_txtSubmitActionPerformed
 
@@ -188,12 +236,12 @@ public class FeesFrame extends javax.swing.JFrame {
         setVisible(false); 
          new DashBoardFrame().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtSIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSIDKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSIDKeyPressed
                                        
- private static java.sql.Date getCurrentDate() {
-		//to load currunt time in date 
-	    java.util.Date today = new java.util.Date();
-	    return new java.sql.Date(today.getTime());
-	}   
+
     /**
      * @param args the command line arguments
      */
@@ -231,11 +279,11 @@ public class FeesFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAmmount;
+    private javax.swing.JLabel lblBanner;
+    private javax.swing.JLabel lblFeesType;
+    private javax.swing.JLabel lblSID;
     private javax.swing.JLabel lblout;
     private javax.swing.JTextField txtAmmount;
     private javax.swing.JTextField txtFT;

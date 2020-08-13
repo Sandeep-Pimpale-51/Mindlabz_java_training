@@ -72,11 +72,11 @@
                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" pref="457" max="-2" attributes="0"/>
+                              <Component id="lblBanner" min="-2" pref="457" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="lblClass" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
                               <Component id="cmbClass" min="-2" pref="117" max="-2" attributes="0"/>
                           </Group>
@@ -90,10 +90,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="lblBanner" min="-2" pref="37" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="lblClass" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="cmbClass" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -108,7 +108,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lblBanner">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="36" style="0"/>
@@ -116,7 +116,7 @@
             <Property name="text" type="java.lang.String" value="   School Management System"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="lblClass">
           <Properties>
             <Property name="text" type="java.lang.String" value="Class"/>
           </Properties>
